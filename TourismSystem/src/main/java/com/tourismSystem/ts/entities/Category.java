@@ -2,6 +2,7 @@ package com.tourismSystem.ts.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,9 +19,9 @@ public class Category {
     public Category(){
     }
 
-    public Category(String name, List<Offer> offers) {
+    public Category(String name) {
         this.name = name;
-        this.offers = offers;
+        this.offers = new ArrayList<>();
     }
 
     public Long getId() {
