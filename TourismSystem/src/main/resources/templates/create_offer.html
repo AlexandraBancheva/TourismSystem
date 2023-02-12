@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tourism System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+        <h1 class="text-center"> Създаване на нова оферта </h1>
+        <div class="card-body">
+            <form th:action="@{/offers}" th:object="${offer}" method="POST">
+                <div class="form-group">
+                    <label>Име на офертата:</label>
+                    <input type="text"
+                            name="fullName"
+                    th:field="*{fullName}"
+                    class="form-control"
+                    placeholder="Въведете име на офертата..."/>
+                </div>
+
+                <div class="form-group">
+                    <label>Начална дата:</label>
+                    <input type="date"
+                    name="startDate"
+                    th:field="*{startDate}"
+                    class="form-control"
+                    placeholder="Въведете начална дата на пътуването..."/>
+                </div>
+
+                <div class="form-group">
+                    <label>Крайна дата:</label>
+                    <input type="date"
+                           name="endDate"
+                           th:field="*{endDate}"
+                           class="form-control"
+                           placeholder="Въведете крайна дата на пътуването..." />
+                </div>
+
+                <div class="form-group">
+                    <label>Цена:</label>
+                    <input type="number"
+                           name="price"
+                           th:field="*{price}"
+                           class="form-control"
+                           placeholder="Въведете цената на човек..." />
+                </div>
+
+                <div class="form-group">
+                    <label>Цената включва:</label>
+                    <input type="text"
+                           name="priceIncludes"
+                           th:field="*{priceIncludes}"
+                           class="form-control"
+                           placeholder="Въведете какво включва цената..." />
+                </div>
+
+                <div class="form-group">
+                    <label>Цената не включва:</label>
+                    <input type="text"
+                           name="priceNotIncludes"
+                           th:field="*{priceNotIncludes}"
+                           class="form-control"
+                           placeholder="Въведете какво не включва цената..." />
+                </div>
+
+                <div class="form-group">
+                    <label>Транспорт:</label>
+                    <select>
+                        <option th:each="transport: ${transports}" th:text="${transport.name}"></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Категория:</label>
+                    <select>
+                        <option th:each="category: ${categories}" th:text="${category.name}"></option>
+                    </select>
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Създаване" />
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
