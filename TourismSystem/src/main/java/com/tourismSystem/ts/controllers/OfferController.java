@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,10 +44,22 @@ public class OfferController {
         return listTransports;
     }
 
+    @GetMapping("/offers")
+    public String listOffers(Model model){
+        model.addAttribute("offers", offerService.getAllOffers());
+        return "offers";
+    }
+
     @GetMapping("/offers/new")
     public String createNewOffer(Model model){
         Offer offer = new Offer();
         model.addAttribute("offer", offer);
         return "create_offer";
+    }
+
+    @PostMapping("/offers")
+    public String saveOffer(@ModelAttribute("offer") Offer offer){
+        offerService.saveOffer(offer);
+        return "redirect:/offers";
     }
 }
