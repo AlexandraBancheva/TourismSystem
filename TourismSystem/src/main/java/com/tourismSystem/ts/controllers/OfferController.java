@@ -54,7 +54,7 @@ public class OfferController {
 
     @GetMapping("/addOfferForm")
     public ModelAndView addOfferForm(){
-        ModelAndView mav = new ModelAndView("create_offer");
+        ModelAndView mav = new ModelAndView("add-offer-form");
         Offer newOffer = new Offer();
         mav.addObject("offer", newOffer);
         return mav;

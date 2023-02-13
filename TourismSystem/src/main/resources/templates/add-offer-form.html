@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Tourism System</title>
+    <title>Добавяне на оферта</title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -11,9 +11,10 @@
 <body>
 <div class="container">
     <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-        <h1 class="text-center"> Създаване на нова оферта </h1>
+        <h3 class="text-center"> Добавяне на нова оферта </h3>
+        <hr/>
         <div class="card-body">
-            <form th:action="@{/offers}" th:object="${offer}" method="POST">
+            <form th:action="@{/saveOffer}" th:object="${offer}" method="POST">
                 <div class="form-group">
                     <label>Име на офертата:</label>
                     <input type="text"
@@ -45,7 +46,7 @@
                     <label>Цена:</label>
                     <input type="number"
                            name="price"
-                           th:field="*{price}"
+                           th:field="*{pricePerPerson}"
                            class="form-control"
                            placeholder="Въведете цената на човек..." />
                 </div>
@@ -63,7 +64,7 @@
                     <label>Цената не включва:</label>
                     <input type="text"
                            name="priceNotIncludes"
-                           th:field="*{priceNotIncludes}"
+                           th:field="*{priceDoesNotInclude}"
                            class="form-control"
                            placeholder="Въведете какво не включва цената..." />
                 </div>
@@ -83,7 +84,10 @@
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Създаване" />
+                <input type="hidden" th:field="*{id}" />
             </form>
+            <hr/>
+            <a th:href="@{/offers}">Връщане назад</a>
         </div>
     </div>
 </div>
