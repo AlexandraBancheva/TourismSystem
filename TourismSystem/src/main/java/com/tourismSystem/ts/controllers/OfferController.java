@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,21 +45,23 @@ public class OfferController {
         return listTransports;
     }
 
-    @GetMapping("/offers")
-    public String listOffers(Model model){
-        model.addAttribute("offers", offerService.getAllOffers());
-        return "offers";
+    @GetMapping({"/offers", "/"})
+    public ModelAndView listOffers(Model model){
+        ModelAndView mav = new ModelAndView("list-offers");
+        mav.addObject("offers", offerService.getAllOffers());
+        return mav;
     }
 
-    @GetMapping("/offers/new")
-    public String createNewOffer(Model model){
-        Offer offer = new Offer();
-        model.addAttribute("offer", offer);
-        return "create_offer";
+    @GetMapping("/addOfferForm")
+    public ModelAndView addOfferForm(){
+        ModelAndView mav = new ModelAndView("create_offer");
+        Offer newOffer = new Offer();
+        mav.addObject("offer", newOffer);
+        return mav;
     }
 
-    @PostMapping("/offers")
-    public String saveOffer(@ModelAttribute("offer") Offer offer){
+    @PostMapping("/saveOffer")
+    public String saveOffer(@ModelAttribute Offer offer){
         offerService.saveOffer(offer);
         return "redirect:/offers";
     }
