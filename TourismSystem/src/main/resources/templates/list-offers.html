@@ -16,7 +16,34 @@
 <div class="container">
     <h3>Всички оферти</h3>
     <hr />
-<!--    <a th:href="@/"-->
+    <a th:href="@{/create_offer}" class="btn btn-primary">Добавяне на оферта</a>
+    <br/><br/>
+    <table class="table table-bordered table-striped" id="offerTable">
+        <thead>
+        <tr>
+            <th>Име</th>
+            <th>Начална дата</th>
+            <th>Крайна дата</th>
+            <th>Категория</th>
+            <th>Транспорт</th>
+            <th>Цена на човек</th>
+<!--            <th>Цената включва</th>-->
+<!--            <th>Цената не включва</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="offer: ${offers}">
+            <td th:text="${offer.fullName}"/>
+            <td th:text="${offer.startDate}"/>
+            <td th:text="${offer.endDate}"/>
+            <td th:text="${offer.category}"/>
+            <td th:text="${offer.transport}"/>
+            <td th:text="${offer.pricePerPerson}"/>
+<!--            <td th:text="${offer.priceIncludes}"/>-->
+<!--            <td th:text="${offer.priceDoesNotInclude}"/>-->
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
