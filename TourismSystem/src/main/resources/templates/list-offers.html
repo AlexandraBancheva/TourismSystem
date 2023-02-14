@@ -8,7 +8,7 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <div class="text-center">
-        <h1 class="display-4">Welcome to Tourism System!</h1>
+        <h1 class="display-4">Добре дошли!</h1>
     </div>
 
 </head>
@@ -27,8 +27,6 @@
             <th>Категория</th>
             <th>Транспорт</th>
             <th>Цена на човек</th>
-<!--            <th>Цената включва</th>-->
-<!--            <th>Цената не включва</th>-->
         </tr>
         </thead>
         <tbody>
@@ -39,8 +37,6 @@
             <td th:text="${offer.category}"/>
             <td th:text="${offer.transport}"/>
             <td th:text="${offer.pricePerPerson}"/>
-<!--            <td th:text="${offer.priceIncludes}"/>-->
-<!--            <td th:text="${offer.priceDoesNotInclude}"/>-->
         </tr>
         </tbody>
     </table>
