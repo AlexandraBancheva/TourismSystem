@@ -11,14 +11,23 @@ public class Image {
     @ManyToOne
     @JoinColumn(name = "offer_id", nullable = false)
     private Offer offer;
+
+    @Column(name = "name", nullable = false)
+    private String name;
     @Column(name = "extension", nullable = false)
     private String extension;
 
+    @Column(name = "filePath", nullable = false)
+    private String filePath;
+
     public Image(){
     }
-    public Image(Offer offer, String extension) {
+
+    public Image(Offer offer, String name, String extension, String filePath) {
         this.offer = offer;
+        this.name = name;
         this.extension = extension;
+        this.filePath = filePath;
     }
 
     public Long getId() {
@@ -44,4 +53,22 @@ public class Image {
     public void setExtension(String extension) {
         this.extension = extension;
     }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
 }
