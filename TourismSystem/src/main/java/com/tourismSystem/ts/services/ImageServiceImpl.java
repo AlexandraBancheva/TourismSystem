@@ -3,11 +3,13 @@ package com.tourismSystem.ts.services;
 import com.tourismSystem.ts.entities.Image;
 import com.tourismSystem.ts.repositories.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 
+@Service
 public class ImageServiceImpl implements ImageService{
 
     @Autowired
