@@ -1,6 +1,7 @@
 package com.tourismSystem.ts.services;
 
 import com.tourismSystem.ts.entities.Image;
+import com.tourismSystem.ts.entities.Offer;
 import com.tourismSystem.ts.repositories.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,8 @@ public class ImageServiceImpl implements ImageService{
         Image image = imageRepository.save(Image.builder()
                                             .name(file.getOriginalFilename())
                                             .extension(file.getContentType())
-                                            .filePath(filePath).build());
+                                            .filePath(filePath)
+                                            .build());
 
         file.transferTo(new File(filePath));
 

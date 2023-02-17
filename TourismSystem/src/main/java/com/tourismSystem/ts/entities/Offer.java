@@ -1,11 +1,19 @@
 package com.tourismSystem.ts.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "offers")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Offer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,9 +24,9 @@ public class Offer {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
     @Column(name = "start_date", nullable = false)
-    private Date startDate;
+    private LocalDate startDate;
     @Column(name = "end_date", nullable = false)
-    private Date endDate;
+    private LocalDate endDate;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "transport_id", nullable = false)
     private Transport transport;
@@ -33,106 +41,107 @@ public class Offer {
     @OneToMany(mappedBy = "offer")
     private List<Image> images;
 
-    public Offer(){
-    }
-
-    public Offer(String fullName,
-                 Category category,
-                 Date startDate,
-                 Date endDate,
-                 Transport transport,
-                 Double pricePerPerson,
-                 String priceIncludes,
-                 String priceDoesNotInclude,
-                 String createdApplicationUser) {
-        this.fullName = fullName;
-        this.category = category;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.transport = transport;
-        this.pricePerPerson = pricePerPerson;
-        this.priceIncludes = priceIncludes;
-        this.priceDoesNotInclude = priceDoesNotInclude;
-        this.createdApplicationUser = createdApplicationUser;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public Transport getTransport() {
-        return transport;
-    }
-
-    public void setTransport(Transport transport) {
-        this.transport = transport;
-    }
-
-    public Double getPricePerPerson() {
-        return pricePerPerson;
-    }
-
-    public void setPricePerPerson(Double pricePerPerson) {
-        this.pricePerPerson = pricePerPerson;
-    }
-
-    public String getPriceIncludes() {
-        return priceIncludes;
-    }
-
-    public void setPriceIncludes(String priceIncludes) {
-        this.priceIncludes = priceIncludes;
-    }
-
-    public String getPriceDoesNotInclude() {
-        return priceDoesNotInclude;
-    }
-
-    public void setPriceDoesNotInclude(String priceDoesNotInclude) {
-        this.priceDoesNotInclude = priceDoesNotInclude;
-    }
-
-    public String getCreatedApplicationUser() {
-        return createdApplicationUser;
-    }
-
-    public void setCreatedApplicationUser(String createdApplicationUser) {
-        this.createdApplicationUser = createdApplicationUser;
-    }
+//    public Offer(){
+//    }
+//
+//    public Offer(String fullName,
+//                 Category category,
+//                 Date startDate,
+//                 Date endDate,
+//                 Transport transport,
+//                 Double pricePerPerson,
+//                 String priceIncludes,
+//                 String priceDoesNotInclude,
+//                 String createdApplicationUser) {
+//        this.fullName = fullName;
+//        this.category = category;
+//        this.startDate = startDate;
+//        this.endDate = endDate;
+//        this.transport = transport;
+//        this.pricePerPerson = pricePerPerson;
+//        this.priceIncludes = priceIncludes;
+//        this.priceDoesNotInclude = priceDoesNotInclude;
+//        this.createdApplicationUser = createdApplicationUser;
+//        this.images = new ArrayList<Image>();
+//    }
+//
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getFullName() {
+//        return fullName;
+//    }
+//
+//    public void setFullName(String fullName) {
+//        this.fullName = fullName;
+//    }
+//
+//    public Category getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(Category category) {
+//        this.category = category;
+//    }
+//
+//    public Date getStartDate() {
+//        return startDate;
+//    }
+//
+//    public void setStartDate(Date startDate) {
+//        this.startDate = startDate;
+//    }
+//
+//    public Date getEndDate() {
+//        return endDate;
+//    }
+//
+//    public void setEndDate(Date endDate) {
+//        this.endDate = endDate;
+//    }
+//
+//    public Transport getTransport() {
+//        return transport;
+//    }
+//
+//    public void setTransport(Transport transport) {
+//        this.transport = transport;
+//    }
+//
+//    public Double getPricePerPerson() {
+//        return pricePerPerson;
+//    }
+//
+//    public void setPricePerPerson(Double pricePerPerson) {
+//        this.pricePerPerson = pricePerPerson;
+//    }
+//
+//    public String getPriceIncludes() {
+//        return priceIncludes;
+//    }
+//
+//    public void setPriceIncludes(String priceIncludes) {
+//        this.priceIncludes = priceIncludes;
+//    }
+//
+//    public String getPriceDoesNotInclude() {
+//        return priceDoesNotInclude;
+//    }
+//
+//    public void setPriceDoesNotInclude(String priceDoesNotInclude) {
+//        this.priceDoesNotInclude = priceDoesNotInclude;
+//    }
+//
+//    public String getCreatedApplicationUser() {
+//        return createdApplicationUser;
+//    }
+//
+//    public void setCreatedApplicationUser(String createdApplicationUser) {
+//        this.createdApplicationUser = createdApplicationUser;
+//    }
 }

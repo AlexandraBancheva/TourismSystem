@@ -75,9 +75,9 @@ public class OfferController {
         return "redirect:/offers";
     }
 
-    @PostMapping("/upload")
-    public ResponseEntity<?> uploadImageToFileSystem(@RequestParam("image")MultipartFile file) throws IOException {
-        String uploadImage = imageService.uploadImageToFileSystem(file);
-        return ResponseEntity.status(HttpStatus.OK).body(uploadImage);
-    }
+//    @PostMapping("/upload")
+//    public ResponseEntity<?> uploadImageToFileSystem(@RequestParam("image")MultipartFile file) throws IOException {
+//        String uploadImage = imageService.uploadImageToFileSystem(file);
+//        return ResponseEntity.status(HttpStatus.OK).body(uploadImage);
+//    }
 }
