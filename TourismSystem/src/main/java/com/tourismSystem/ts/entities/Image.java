@@ -1,30 +1,30 @@
-package com.tourismSystem.ts.entities;
-
-import jakarta.persistence.*;
-import lombok.*;
-
-@Entity
-@Table(name = "images")
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-@Builder
-public class Image {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @ManyToOne
-    @JoinColumn(name = "offer_id", nullable = false)
-    private Offer offer;
-
-    @Column(name = "name", nullable = false)
-    private String name;
-    @Column(name = "extension", nullable = false)
-    private String extension;
-
-    @Column(name = "filePath", nullable = false)
-    private String filePath;
+//package com.tourismSystem.ts.entities;
+//
+//import jakarta.persistence.*;
+//import lombok.*;
+//
+//@Entity
+//@Table(name = "images")
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Getter
+//@Setter
+//@Builder
+//public class Image {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+//    @ManyToOne
+//    @JoinColumn(name = "offer_id", nullable = false)
+//    private Offer offer;
+//
+//    @Column(name = "name", nullable = false)
+//    private String name;
+//    @Column(name = "extension", nullable = false)
+//    private String extension;
+//
+//    @Column(name = "filePath", nullable = false)
+//    private String filePath;
 
 //    public Image(){
 //    }
@@ -77,4 +77,4 @@ public class Image {
 //        this.filePath = filePath;
 //    }
 
-}
+//}

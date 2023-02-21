@@ -4,7 +4,7 @@ import com.tourismSystem.ts.entities.Category;
 import com.tourismSystem.ts.entities.Offer;
 import com.tourismSystem.ts.entities.Transport;
 import com.tourismSystem.ts.services.CategoryService;
-import com.tourismSystem.ts.services.ImageService;
+//import com.tourismSystem.ts.services.ImageService;
 import com.tourismSystem.ts.services.OfferService;
 import com.tourismSystem.ts.services.TransportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,16 +28,16 @@ public class OfferController {
     private OfferService offerService;
     private CategoryService categoryService;
     private TransportService transportService;
-    private ImageService imageService;
+//    private ImageService imageService;
 
     public OfferController(OfferService offerService,
                            CategoryService categoryService,
-                           TransportService transportService,
-                           ImageService imageService) {
+                           TransportService transportService
+                           ) {
         this.offerService = offerService;
         this.categoryService = categoryService;
         this.transportService = transportService;
-        this.imageService = imageService;
+//        this.imageService = imageService;
     }
 
     @ModelAttribute("categories")

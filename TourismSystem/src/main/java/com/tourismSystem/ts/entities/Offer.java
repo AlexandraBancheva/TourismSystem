@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -38,8 +36,8 @@ public class Offer {
     private String priceDoesNotInclude;
     @Column(name = "created_by", nullable = false)
     private String createdApplicationUser;
-    @OneToMany(mappedBy = "offer")
-    private List<Image> images;
+//    @OneToMany(mappedBy = "offer")
+//    private List<Image> images;
 
 //    public Offer(){
 //    }

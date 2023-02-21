@@ -29,14 +29,18 @@
                 <div class="form-group">
                     <label>Транспорт:</label>
                     <select>
-                        <option th:each="transport: ${transports}" th:text="${transport.name}" />
+                        <option th:each="transport: ${transports}"
+                                th:value="${transport.id}"
+                                th:text="${transport.name}" />
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label>Категория:</label>
                     <select>
-                        <option th:each="category: ${categories}" th:text="${category.name}" />
+                        <option th:each="category: ${categories}"
+                                th:value="${category.id}"
+                                th:text="${category.name}"  />
                     </select>
                 </div>
 
@@ -86,9 +90,9 @@
                 </div>
 
 <!--                <form method="post" th:action="@{/upload}" enctype="multipart/form-data">-->
-                    <div class="form-group">
-                        <input type="file" name="image" accept="image/*" class="form-control-file">
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <input type="file" name="image" accept="image/*" class="form-control-file">-->
+<!--                    </div>-->
 <!--                </form>-->
 
                 <input type="submit" class="btn btn-primary" value="Създаване" />
